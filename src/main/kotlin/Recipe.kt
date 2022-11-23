@@ -1,3 +1,3 @@
-class Recipe(var recipe_title: String, var recipe_description: String, var durationTime:Long, var canMultitasking: Boolean) {
+class Recipe(var title: String, var material: ArrayList<String>, var description: String, var duration:Long, var canDoOther: Boolean) {
     //
 }
