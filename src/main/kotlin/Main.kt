@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
         title = "물 끓이기",
         material = arrayListOf<String>("물500ml", "냄비"),
         description = "물 550ml를 냄비에 받은 후 4분동안 끓이세요",
-        duration = TimeUnit.SECONDS.toMinutes(4),
+        duration = TimeUnit.SECONDS.toMillis(4),
         canDoOther = true
     );
     var ramen_recipe2 = Recipe(
@@ -25,7 +25,13 @@ fun main(args: Array<String>) {
     ramen_recipe.add(ramen_recipe1);
     ramen_recipe.add(ramen_recipe2);
 
-    var cook1 = Cuisine(name = "Cook-1-요리이름", description = "맛있는 요리1 입니다", recipe = ramen_recipe);
+    var ramen = Cuisine(name = "라면", description = "간편하게 먹는 라면입니다", recipe = ramen_recipe);
+
+
+
+
+
+
     // cook1.printRecipe();
 
 //    var time = TimeUnit.SECONDS.toMillis(1)
