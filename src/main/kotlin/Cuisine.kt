@@ -1,6 +1,5 @@
 class Cuisine(var name: String, var description: String, var recipe: ArrayList<Recipe>){
 
-    // 생성자 어렵다.. 질문하자
     var material = ArrayList<String>();
     init {
         for (x in recipe){
