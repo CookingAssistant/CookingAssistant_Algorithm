@@ -5,6 +5,8 @@ class Cuisine(var name: String, var description: String, var recipe: ArrayList<R
         for (x in recipe){
            this.material.addAll(x.material)
         }
+
+
     }
 
 

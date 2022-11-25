@@ -1,18 +1,25 @@
 class CookingAssistant(var Cuisines: ArrayList<Cuisine>){
-    var myList: ArrayList<String>
-
-
-    fun asd(){
+    var cookOrder :ArrayList<Recipe> = ArrayList<Recipe>()
+    init{
+        println("Hello this is CookingAssistant")
+        println("We will make")
         for(cuisine in Cuisines){
-            for(recipe in cuisine){
-                if(recipe.canDoOther == 0){
-                    myList.add(recipe.description)
-                }
+            println("-${cuisine.name}")
+        }
+        println("=======================")
+        println("Materials:")
+        for(cuisine in Cuisines) {
+            println(cuisine.material)
+        }
+        println("=======================")
+        println("Recipes:")
+        for(cuisine in Cuisines) {
+            for(recipe in cuisine.recipe){
+                println(recipe.description)
             }
         }
 
 
-        println(myList)
     }
 
 
