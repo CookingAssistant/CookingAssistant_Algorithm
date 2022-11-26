@@ -9,7 +9,8 @@ fun main(args: Array<String>) {
         material = arrayListOf<String>("물500ml", "냄비"),
         description = "물 550ml를 냄비에 받은 후 4분동안 끓이세요",
         duration = TimeUnit.MINUTES.toMillis(4),
-        canDoOther = true
+        canDoOther = true,
+        done = false
     );
 
     var ramen_recipe2 = Recipe(
@@ -17,7 +18,8 @@ fun main(args: Array<String>) {
         material = arrayListOf<String>("라면 1봉지"),
         description = "면, 스프, 후레이크를 넣어주세요. 4분 더 끓이신 후 완성입니다.",
         duration = TimeUnit.MINUTES.toMillis(4),
-        canDoOther = false
+        canDoOther = false,
+        done = false
     );
 
     ramen_recipe1.left = null
@@ -39,15 +41,17 @@ fun main(args: Array<String>) {
         material = arrayListOf<String>("후라이펜", "소량의 기름"),
         description = "후라이팬에 기름을 두리고 1분간 예열하세요",
         duration = TimeUnit.MINUTES.toMillis(1),
-        canDoOther = true
+        canDoOther = true,
+        done = false
     );
 
     var steak_recipe2 = Recipe(
         title = "소고기 굽기",
         material = arrayListOf<String>("소고기 400g"),
         description = "후라이팬에 소고기를 올리고 취향에 맞게 (2분 - 레어, 3분 미디엄 레어, 4분 미디엄) 익혀주시면 완성입니다.",
-        duration = TimeUnit.SECONDS.toMinutes(4),
-        canDoOther = false
+        duration = TimeUnit.MINUTES.toMillis(4),
+        canDoOther = false,
+        done = false
     );
 
     steak_recipe1.left = null
@@ -70,21 +74,24 @@ fun main(args: Array<String>) {
         material = arrayListOf<String>("후라이펜", "소량의 기름"),
         description = "후라이팬에 기름을 두리고 1분간 예열하세요",
         duration = TimeUnit.MINUTES.toMillis(1),
-        canDoOther = true
+        canDoOther = true,
+        done = false
     );
     var egg_fried_rice_recipe2 = Recipe(
         title = "계란 익히기",
         material = arrayListOf<String>("계란 2알"),
         description = "후라이팬에서 계란을 튀기듯이 2분간 익혀주세요",
-        duration = TimeUnit.SECONDS.toMinutes(2),
-        canDoOther = false
+        duration = TimeUnit.MINUTES.toMillis(2),
+        canDoOther = false,
+        done = false
     );
     var egg_fried_rice_recipe3 = Recipe(
         title = "밥과 계란 볶기",
         material = arrayListOf<String>("밥 1공기"),
         description = "후라이팬에 밥을 넣고 계란과 함께 3분정도 볶아주시면 완성입니다.",
-        duration = TimeUnit.SECONDS.toMinutes(3),
-        canDoOther = false
+        duration = TimeUnit.MINUTES.toMillis(3),
+        canDoOther = false,
+        done = false
     );
 
     egg_fried_rice_recipe1.left = null
@@ -111,20 +118,19 @@ fun main(args: Array<String>) {
     cookList.add(steak)
     cookList.add(egg_fried_rice)
 
-    var temp:Recipe = egg_fried_rice_recipe1
-    while(true){
-        println(temp.description)
-        if(temp.right == null){
-            break
-        }
-        else{
-            temp = temp.right!!
-        }
-
-    }
-    //var ca = CookingAssistant(cookList)
-
-
+//    var temp:Recipe = egg_fried_rice_recipe1
+//    while(true){
+//        println(temp.description)
+//        if(temp.right == null){
+//            break
+//        }
+//        else{
+//            temp = temp.right!!
+//        }
+//
+//    }
+    var ca = CookingAssistant(cookList)
+    ca.Cook()
 
 
 
