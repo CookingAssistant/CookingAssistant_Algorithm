@@ -57,17 +57,9 @@ class CookingAssistant(var Cuisines: ArrayList<Cuisine>){
                             c.recipe[i].start()
                             did++
                         }
-
                     }
-
-
-
-
                 }
-
-
             }
-
         }
         println("요리가 완성되었습니다 ~")
     }

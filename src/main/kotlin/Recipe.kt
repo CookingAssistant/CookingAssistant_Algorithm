@@ -12,15 +12,3 @@ class Recipe(var title: String, var material: ArrayList<String>, var description
 
     }
 }
-
-
-//class SimpleThread(rot: rotto) : Thread(){
-//
-//    var c = rot.get()
-//    override fun run() {
-//        while(true) {
-//            println("${Thread.currentThread()} add...")
-//            Thread.sleep(1000)
-//        }
-//    }
-//}

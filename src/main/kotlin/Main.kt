@@ -112,19 +112,61 @@ fun main(args: Array<String>) {
 
     var egg_fried_rice = Cuisine(name = "계란볶음밥", description = "계란과 밥을 볶은 요리입니다", recipe = egg_fried_rice_recipe);
 
+    var recipe_list = ArrayList<Recipe>()
+    var cuisine_list  = ArrayList<Cuisine>()
+
+
+   cuisine_list.add(createCuisine())
+
 
     var cookList = ArrayList<Cuisine>()
     cookList.add(ramen)
     cookList.add(steak)
     cookList.add(egg_fried_rice)
-
+    for (i in 0 until cuisine_list.size) {
+        cookList.add(cuisine_list[i])
+    }
 
     val ca = CookingAssistant(cookList)
     ca.cook()
 
+}
+
+fun addRecipe(recipe_list: ArrayList<Recipe>, title: String, material: ArrayList<String>, description: String, duration:Long, canDoOther: Boolean) {
+        recipe_list.add(
+            Recipe(
+            title = title,
+            material = material,
+            description = description,
+            duration = duration,
+            canDoOther = canDoOther,
+            done = false
+        )
+    )
+}
+
+fun createCuisine():Cuisine {
+    var name: String = "파전" // 사용자 입력
+    var description: String = "노릇노릇 파전" // 사용자 입력
+    var recipe_list = ArrayList<Recipe>()  // 레시피 저장을 위한 임시 공간
 
 
+    // 사용자 입력 시작
+    addRecipe(recipe_list, "재료 준비", arrayListOf<String>("파 반단", "감자 1개", "양파 1개", "해산물(오징어 새우) 1컵", "고추 2개"),
+        "재료를 모두 채썰어 준비해주세요", TimeUnit.MINUTES.toMillis(4), canDoOther = false)
+    addRecipe(recipe_list, "반죽 만들기", arrayListOf<String>("물 한 컵", "부침가루 1컵 반", "튀김가구 반 컵", "설탕 1/2t", "소급  1/4t"),
+        "재료를 큰 그릇에 넣고 뭉치지 않도록 잘 섞습니다.", TimeUnit.MINUTES.toMillis(3), canDoOther = false)
+    addRecipe(recipe_list, "팬 예열", arrayListOf<String>("후라이펜", "식용유 3T"), "후라이팬에 기름을 두르고 걍불로 예열합니다.", TimeUnit.MINUTES.toMillis(1), canDoOther = true)
+    addRecipe(recipe_list, "전 부치기(1)", arrayListOf<String>("반죽", "채썬 파"),
+        "후라이팬에 반죽을 두르고 그 위에 파를 올립니다.", TimeUnit.MINUTES.toMillis(1), canDoOther = true)
+    addRecipe(recipe_list, "전 부치기(2)", arrayListOf<String>("채썬 재료"),
+        "반죽 위에 나머지 채료를 올립니다.", TimeUnit.MINUTES.toMillis(1), canDoOther = true)
+    addRecipe(recipe_list, "전 부치기(3)", arrayListOf<String>(""),
+        "전을 뒤집어 고루 익힙니다.", TimeUnit.MINUTES.toMillis(2), canDoOther = true)
 
+    // 사용자 입력 끝
+
+    return Cuisine(name, description, recipe_list); // Cuisine 반환
 }
 
 // 스레드 공부할 때 써놓은건데 없어도 됨
