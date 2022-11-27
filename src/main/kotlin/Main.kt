@@ -118,25 +118,17 @@ fun main(args: Array<String>) {
     cookList.add(steak)
     cookList.add(egg_fried_rice)
 
-//    var temp:Recipe = egg_fried_rice_recipe1
-//    while(true){
-//        println(temp.description)
-//        if(temp.right == null){
-//            break
-//        }
-//        else{
-//            temp = temp.right!!
-//        }
-//
-//    }
-    var ca = CookingAssistant(cookList)
-    ca.Cook()
+
+    val ca = CookingAssistant(cookList)
+    ca.cook()
 
 
 
 
 }
-//
+
+// 스레드 공부할 때 써놓은건데 없어도 됨
+
 //class SimpleThread(rot: rotto) : Thread(){
 //
 //    var c = rot.get()

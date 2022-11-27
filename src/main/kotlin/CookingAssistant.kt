@@ -35,43 +35,46 @@ class CookingAssistant(var Cuisines: ArrayList<Cuisine>){
 
     }
 
-    fun Cook() {
+    fun cook() {
 
         var did: Int = 0
         while (did < num_of_recipe) {
             for (c in Cuisines) {
 
                 for (i in 0 until c.recipe.size) {
-                    println("!!! ${c.recipe[i].description} ${c.recipe[i].done} ${did}")
-                    if (i == 0) {
-                        if (c.recipe[i].isAlive) { // 실행중이라면
-                            break
-                        } else {
-                            c.recipe[i].start()
+
+
+                    if (i == 0 && !c.recipe[i].isAlive && !c.recipe[i].done) {
+                        println(c.recipe[i].description)
+                        c.recipe[i].start()
+                        did++
+
+
+                    } else if (i > 0){
+                        if(c.recipe[i - 1].done && !c.recipe[i].isAlive && !c.recipe[i].done){
+
                             println(c.recipe[i].description)
+                            c.recipe[i].start()
                             did++
                         }
-                    } else if (i != 0) {
-                        if (!c.recipe[i - 1].done) { // 이전 작업이 안끝났다면
-                            break
-                        } else {
-                            if (c.recipe[i].isAlive) { // 실행중이라면
-                                break
-                            } else {
-                                c.recipe[i].start()
-                                println(c.recipe[i].description)
-                                did++
-                            }
-                        }
+
                     }
 
 
 
-                    //Thread.sleep(TimeUnit.MINUTES.toMillis(1) / 1)
+
                 }
-                println("I'm Done")
+
+
             }
 
         }
+        println("요리가 완성되었습니다 ~")
     }
+
+
+
+
+
+
 }

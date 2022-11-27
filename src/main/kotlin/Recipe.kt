@@ -4,9 +4,12 @@ class Recipe(var title: String, var material: ArrayList<String>, var description
     }
 
     override fun run(){
+
         Thread.sleep(duration/10)
         this.done = true
-        println("$title end !")
+        //println("$title end !")
+
+
     }
 }
 
