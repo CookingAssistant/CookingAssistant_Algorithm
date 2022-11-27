@@ -1,18 +1,31 @@
-class Recipe(var title: String, var material: ArrayList<String>, var description: String, var duration:Long, var canDoOther: Boolean, var done: Boolean, var left: Recipe?, var right: Recipe?) : Thread(){
-    constructor(title: String, material: ArrayList<String>, description: String, duration: Long, canDoOther: Boolean, done: Boolean) : this(title, material, description, duration, canDoOther, done, null, null){
+import kotlinx.serialization.Serializable
+
+@Serializable
+class Recipe(
+    var title: String,
+    var material: ArrayList<String>,
+    var description: String,
+    var duration: Long,
+    var canDoOther: Boolean,
+    var left: Recipe?,
+    var right: Recipe?
+) : Thread() {
+    constructor(
+        title: String, material: ArrayList<String>, description: String, duration: Long, canDoOther: Boolean
+    ) : this(title, material, description, duration, canDoOther, null, null) {
         // 생성자
     }
 
-    override fun run(){
+    var done = false
 
-        Thread.sleep(duration/10)
+    override fun run() {
+        Thread.sleep(duration / 100)
         this.done = true
         //println("$title end !")
 
-
     }
-}
 
+}
 
 //class SimpleThread(rot: rotto) : Thread(){
 //
@@ -20,7 +33,7 @@ class Recipe(var title: String, var material: ArrayList<String>, var description
 //    override fun run() {
 //        while(true) {
 //            println("${Thread.currentThread()} add...")
-//            Thread.sleep(1000)
+//            Thread.sleep(1000)Cooking.kt
 //        }
 //    }
 //}
